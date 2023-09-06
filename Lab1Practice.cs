@@ -46,6 +46,12 @@ namespace MyApplication
     Console.WriteLine(x - y);
     Console.WriteLine(x * y);
     Console.WriteLine(y / x);
+    Console.WriteLine(x == y);  // false because x is not equal to y
+    Console.WriteLine(x != y);  // true becasue x is not equal to y
+    Console.WriteLine(x > y);  // false becasue x is not greater to y
+    Console.WriteLine(x < y);  // ture  becasue x is less than y
+    Console.WriteLine(x >= y);  // false because x is not greater or equal to y
+    Console.WriteLine(x <= y);  // ture becasue x is less or equal to y
      
      }
   }
