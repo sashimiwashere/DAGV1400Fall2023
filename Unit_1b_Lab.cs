@@ -31,7 +31,7 @@ namespace lab2a
 
             int score = Convert.ToInt32(Console.ReadLine());    // test score input
             
-            if(score >= 90 && score == 100)     // ask if score is between 90 - 100
+            if(score >= 90 && score = 100)     // ask if score is between 90 - 100
             {
                 Console.WriteLine("A");     // if so will be graded as an A
             }
