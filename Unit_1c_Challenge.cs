@@ -37,3 +37,27 @@ public class Program_Challenge1
         while (guess != num);  // if the guess is not equal to the actual number run the loop again
     }
 }
+
+
+public class Program_Challenge2
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter 3 favorite foods of yours");
+
+        string food1 = Console.ReadLine();
+
+        string food2 = Console.ReadLine();
+
+        string food3 = Console.ReadLine();
+
+        string[] foods = {food1, food2, food3};
+
+        Array.Sort(foods);
+
+        foreach (string y in foods)
+        {
+            Console.WriteLine("I love " + y + "!");
+        }
+    }
+}
