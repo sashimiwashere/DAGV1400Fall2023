@@ -13,6 +13,7 @@ public class Program_Challenge1
         int num = random.Next(1, 11);
 
         int count = 0;
+        
         do
         {
             guess = Convert.ToInt32(Console.ReadLine());
