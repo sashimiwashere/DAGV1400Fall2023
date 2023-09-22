@@ -55,9 +55,9 @@ public class Program_Challenge2
 
         Array.Sort(foods);
 
-        foreach (string y in foods)
+        foreach (string i in foods)
         {
-            Console.WriteLine("I love " + y + "!");
+            Console.WriteLine("I love " + i + "!");
         }
     }
 }
