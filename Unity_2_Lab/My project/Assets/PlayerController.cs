@@ -4,45 +4,48 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public CharacterController controller;
 
-    public float speed = 10f;
+    public float moveSpeed = 60;
 
-    public float gravity = 0f;
+    public float rotationSpeed = 90;
 
-    public float jumpHeight = 5f;
+    public float gravity = -20f;
 
-    public Transform groundCheck;
+    public float jumpSpeed = 10;
 
-    public float groundDistance = 0.5f;
+    CharacterController characterController;
 
-    public LayerMask groundMask;
+    Vector3 moveVelocity;
 
-    Vector3 velocity;
+    Vector3 turnVelocity;
 
-    bool isGrounded;
-    private void Update()
+
+    void Start()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        characterController = GetComponent<CharacterController>(); 
+    }
 
-        if(isGrounded && velocity.y < 0)
+    void Update()
+    {
+        var hInput = Input.GetAxis("Horizontal");
+
+        var vInput = Input.GetAxis("Vertical");
+
+        if(characterController.isGrounded)
         {
-            velocity.y = -2f;
+            moveVelocity = transform.forward * vInput;
+            turnVelocity = transform.up * rotationSpeed * hInput;
+
+            if(Input.GetButtonDown("Jump"))
+            {
+                moveVelocity.y = jumpSpeed;
+            }
         }
-        
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        moveVelocity.y += gravity * Time.deltaTime;
 
-        controller.Move(move * speed * Time.deltaTime);
+        characterController.Move(moveVelocity * Time.deltaTime);
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = jumpHeight;
-        }
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
+        transform.Rotate(turnVelocity * Time.deltaTime);
     }
 }
