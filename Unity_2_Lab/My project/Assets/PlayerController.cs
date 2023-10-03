@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 60;
+    public float moveSpeed = 450;
 
     public float rotationSpeed = 90;
 
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     {
         var hInput = Input.GetAxis("Horizontal");
 
-        var vInput = Input.GetAxis("Vertical");
+        var vInput = Input.GetAxis("Vertical"); 
 
         if(characterController.isGrounded)
         {
