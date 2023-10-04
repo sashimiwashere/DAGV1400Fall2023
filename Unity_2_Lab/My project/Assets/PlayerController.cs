@@ -5,9 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed = 450;
-
-    public float rotationSpeed = 90;
+    public float moveSpeed = 5;
 
     public float gravity = -20f;
 
@@ -33,8 +31,8 @@ public class PlayerController : MonoBehaviour
 
         if(characterController.isGrounded)
         {
-            moveVelocity = transform.forward * vInput;
-            turnVelocity = transform.up * rotationSpeed * hInput;
+            moveVelocity.x = moveSpeed * hInput;
+            moveVelocity.z = moveSpeed * vInput;
 
             if(Input.GetButtonDown("Jump"))
             {
@@ -46,6 +44,6 @@ public class PlayerController : MonoBehaviour
 
         characterController.Move(moveVelocity * Time.deltaTime);
 
-        transform.Rotate(turnVelocity * Time.deltaTime);
+        
     }
 }
