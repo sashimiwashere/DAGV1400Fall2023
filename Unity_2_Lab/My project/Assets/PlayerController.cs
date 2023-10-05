@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
             if(Input.GetButtonDown("Jump") && !crouch) //jump
             {
                 moveVelocity.y = jumpForce;
-                doubleJump = !doubleJump;//double jump 
+                doubleJump = !doubleJump;   //double jump 
             }
             if(Input.GetKey(KeyCode.LeftShift)) //sprint
             {
