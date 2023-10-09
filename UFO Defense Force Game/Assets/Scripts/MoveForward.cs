@@ -5,8 +5,9 @@ using UnityEngine;
 public class MoveForward : MonoBehaviour
 {
     public float speed = 50;
+
 void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);  //shoot laser forward
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);  //fire the laser
     }
 }

@@ -6,10 +6,7 @@ public class Destory : MonoBehaviour
 {
     public float topBounds = 50;
     public float lowerBounds = -50;
-    void Start()
-    {
-        
-    }
+
     void Update()
     {
         if(transform.position.z > topBounds)
@@ -18,7 +15,7 @@ public class Destory : MonoBehaviour
         }
         else if(transform.position.z < lowerBounds)
         {
-            Debug.Log("Game Over!");
+            print("Item has be destroied");
             Destroy(gameObject);
         }
     }

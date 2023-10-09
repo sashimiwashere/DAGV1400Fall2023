@@ -26,13 +26,15 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
-        if(Input.GetKeyDown(KeyCode.Space)) // fire laser
+        if(Input.GetKeyDown(KeyCode.Space)) // press space to fire laser
         {
             Instantiate(laser, blaster.transform.position, laser.transform.rotation);   // Create laser from blaster position to object rotation
         }
     }
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(other.gameObject);  // Delete any object with trigger hits player
+        print("Item collected");
+        Destroy(other.gameObject);
     }
+
 }
