@@ -31,10 +31,6 @@ public class PlayerController : MonoBehaviour
             Instantiate(laser, blaster.transform.position, laser.transform.rotation);   // Create laser from blaster position to object rotation
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        print("Item collected");
-        Destroy(other.gameObject);
-    }
+
 
 }

@@ -10,11 +10,6 @@ public class ItemDropSystem : MonoBehaviour
     public Transform dropper;
     public Transform item;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         countDown -= 1f * Time.deltaTime;

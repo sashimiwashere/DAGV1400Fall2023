@@ -5,7 +5,12 @@ using UnityEngine;
 public class Destory : MonoBehaviour
 {
     public float topBounds = 50;
-    public float lowerBounds = -50;
+    public float lowerBounds = -30;
+
+    void Start()
+    {
+        Time.timeScale = 1;
+    }
 
     void Update()
     {
@@ -15,8 +20,9 @@ public class Destory : MonoBehaviour
         }
         else if(transform.position.z < lowerBounds)
         {
-            print("Item has be destroied");
+            print("Game Over");
             Destroy(gameObject);
+            Time.timeScale = 0;
         }
     }
 }
