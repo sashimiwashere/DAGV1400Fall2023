@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectCollision : MonoBehaviour
-{ 
+public class ItemPickupDestroy : MonoBehaviour
+{
+    private float lowerBounds = -30f;
+    
     void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            Destroy(other.gameObject);
+            print("Item collected");
         }
-        else if(other.gameObject.CompareTag("Weapon"))
+    }
+
+    void Update()
+    {
+        if(transform.position.z < lowerBounds)
         {
             Destroy(gameObject);
-            Destroy(other.gameObject);
+            print("Item destroied");
         }
     }
 }

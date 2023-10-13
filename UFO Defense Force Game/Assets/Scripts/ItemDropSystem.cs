@@ -1,22 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemDropSystem : MonoBehaviour
 {
-    public float countDown = 5f;
-    public float newCountDown = 5f;
-    private float dropTime = 0f;
-    public Transform dropper;
-    public Transform item;
-
-    void Update()
+    public GameObject[] itemPrefabs;
+    private float spawnRangeX = 40f;
+    private float spawnPosZ = 30f;
+    private float startDelay = 0;
+    private float spawnInterval = 3f;
+    
+    void Start() 
     {
-        countDown -= 1f * Time.deltaTime;
-        if(countDown <= dropTime)
-        {
-            Instantiate(item, dropper.transform.position, item.transform.rotation);
-            countDown = newCountDown;
-        }
+        InvokeRepeating("SpawnRandomItem", startDelay, spawnInterval);
+    }
+
+    void SpawnRandomItem() 
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX,spawnRangeX), 0,spawnPosZ);
+        
+        int itemIndex = Random.Range(0,itemPrefabs.Length);
+        
+        Instantiate(itemPrefabs[itemIndex],spawnPos,itemPrefabs[itemIndex].transform.rotation);
     }
 }
