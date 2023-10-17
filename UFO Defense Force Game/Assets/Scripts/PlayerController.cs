@@ -12,6 +12,13 @@ public class PlayerController : MonoBehaviour
 
     public GameObject laser;
 
+    public GameManager gameManager;
+
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     void Update()
     {
         float hInput = Input.GetAxis("Horizontal");   //Set HorizontalInput for keyboard
@@ -26,7 +33,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
-        if(Input.GetKeyDown(KeyCode.Space)) // press space to fire laser
+        if(Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false) // press space to fire laser
         {
             Instantiate(laser, blaster.transform.position, laser.transform.rotation);   // Create laser from blaster position to object rotation
         }
