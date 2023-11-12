@@ -6,6 +6,8 @@ public class DetectCollision : MonoBehaviour
 { 
     public ScoreManager scoreManager; // Store reference to score manager
     public int scoreToGive;
+
+    [SerializeField] private AudioSource destroySoundEffect;
     
     void Start()
     {
@@ -22,6 +24,7 @@ public class DetectCollision : MonoBehaviour
         {
             scoreManager.IncreaseScore(scoreToGive); // Increase the score
             Destroy(gameObject);
+            destroySoundEffect.Play();
             Destroy(other.gameObject);
         }
     }

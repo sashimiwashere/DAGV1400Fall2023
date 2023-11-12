@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public bool isGameOver;
     private GameObject gameOverText;
 
+    [SerializeField] private AudioSource gameOverSoundEffect;
+
     void Awake()
     {
         Time.timeScale = 1;
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
         if(isGameOver)
         {
             EndGame();
+            
         }
         else
         {
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
+        gameOverSoundEffect.Play();
         gameOverText.gameObject.SetActive(true);
         Time.timeScale = 0;
     }

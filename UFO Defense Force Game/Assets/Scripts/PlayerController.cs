@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject laser;
 
     public GameManager gameManager;
-
+    
+    [SerializeField] private AudioSource fireSoundEffect;
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false) // press space to fire laser
         {
+            fireSoundEffect.Play();
             Instantiate(laser, blaster.transform.position, laser.transform.rotation);   // Create laser from blaster position to object rotation
         }
         
