@@ -51,4 +51,10 @@ public class CoroutineBehaviour : MonoBehaviour
             repeatUntilFalseEvent.Invoke();
         }
     }
+
+    public bool CanRun
+    {
+        get => canRun;
+        set => canRun = value;
+    }
 }
